@@ -3,3 +3,4 @@
 locustfile.pyc
 user-data
 .vagrant
+files/site.conf

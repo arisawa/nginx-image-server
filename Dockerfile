@@ -79,7 +79,7 @@ RUN mkdir -p /etc/nginx && \
     mkdir -p /var/www/nginx/tmp
 
 # Add config files
-COPY files/nginx.conf   /etc/nginx/nginx.conf
+COPY files/site.conf    /etc/nginx/nginx.conf
 COPY files/mime.types   /etc/nginx/mime.types
 COPY files/validator.pm /opt/nginx/perl/lib/validator.pm
 
