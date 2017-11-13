@@ -23,8 +23,7 @@ RUN apt-get update && \
 RUN mkdir -p /tmp/imagemagick && \
     cd /tmp/imagemagick && \
     apt-get update && \
-    apt-get build-dep -y imagemagick && \
-    apt-get install -y libwebp-dev devscripts checkinstall && \
+    apt-get install -y pkg-config libltdl-dev libpng-dev libjpeg-turbo8-dev libwebp-dev devscripts checkinstall && \
     curl -L https://launchpad.net/imagemagick/main/${IMAGEMAGICK_VERSION}/+download/ImageMagick-${IMAGEMAGICK_VERSION}.tar.gz > \
       ImageMagick-${IMAGEMAGICK_VERSION}.tar.gz && \
     tar zxf ImageMagick-${IMAGEMAGICK_VERSION}.tar.gz && \
@@ -36,6 +35,8 @@ RUN mkdir -p /tmp/imagemagick && \
       --enable-shared \
       --with-modules \
       --disable-openmp \
+      --with-jpeg=yes \
+      --with-png=yes \
       --with-webp=yes \
       LDFLAGS=-L/usr/local/lib \
       CPPFLAGS=-I/usr/local/include && \
